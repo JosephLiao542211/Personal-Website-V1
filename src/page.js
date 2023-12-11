@@ -49,7 +49,12 @@ function Page({pagestate}){
                         type: 'spring', damping: 17
                         
                     }}>
-                        <h1>Art</h1>
+                        <div className='text'>
+                            <h1>Art</h1>
+                            <h2>/ärt/</h2>
+                            <p3>The expression or application of human creative skill and imagination.</p3>
+                        </div>
+                        
                     </motion.div>
                 </div>
                 
@@ -65,7 +70,7 @@ function Page({pagestate}){
                         type: 'spring', damping: 17
                         
                     }}>
-                        <h1>Art</h1>
+                        <h1>Technology</h1>
                     </motion.div>
                 </div>
             )

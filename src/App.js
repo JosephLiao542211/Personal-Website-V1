@@ -32,7 +32,7 @@ function App() {
           animate={isOpen ?  "open": "closed"}
           variants={variants}
           onClick={handleclick}
-        ><h1>{name}</h1></motion.button>
+        ><p1>{name}</p1></motion.button>
       </div>
       <nav>        
         <Columns
@@ -64,17 +64,17 @@ function Columns({ backgroundColora, backgroundColorb, backgroundColorc, state, 
       <div style={{ display: "grid", gridTemplateColumns: "repeat(3,33.333333%)", gap: "0px", width: "33vh", justifyContent: "center" }}>
         <div>
           <div className={navstate} style={{ backgroundColor: backgroundColora }} onClick={() => handleColumnClick("About")}>
-            <h1>About Me</h1>
+            <p1>About Me</p1>
           </div>
         </div>
         <div>
           <div className={navstate} style={{ backgroundColor: backgroundColorb }} onClick={() => handleColumnClick("Tech")}>
-            <h1>Technology</h1>
+            <p1>Technology</p1>
           </div>
         </div>
         <div>
           <div className={navstate} style={{ backgroundColor: backgroundColorc }} onClick={() => handleColumnClick("Art")}>
-            <h1>Art</h1>
+            <p1>Art</p1>
           </div>
         </div>
       </div>
