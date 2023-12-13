@@ -1,39 +1,45 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from "framer-motion";
-import { BsFillArrowLeftCircleFill } from "react-icons/bs";
 import Page from "./page";
+import $ from 'jquery';
 
 function App() {
   const [pagestate, setpage] = useState("About");
   const [isOpen, setIsOpen] = useState(false);
-  const [name, setname] = useState("close");
+  
 
   const variants = {
-    open: { x: -300 },
+    open: { x: -150 },
     closed: { x: 0 },
   };
 
+  const toggleHover = (button) => {
+    
+    $(button).toggleClass('hover');
+  }
+
   const handleclick = () => {
+    toggleHover(".buttonwrapper");
     setIsOpen(isOpen => !isOpen);
-    setname(isOpen ? "closed" : "opened");
   }
 
   const handleColumnClick = (newPageState) => {
+    toggleHover(".buttonwrapper");
     setpage(newPageState);
-    setname("closed");
+    setIsOpen(isOpen => !isOpen);
   }
 
   return (
     <div className="main">
       <Page pagestate={pagestate}></Page>
-      <div className="buttonwrapper">
-        <motion.button
-          id='button' 
-          animate={isOpen ?  "open": "closed"}
-          variants={variants}
-          onClick={handleclick}
-        ><p1>{name}</p1></motion.button>
-      </div>
+      <motion.div className='buttoncontainer'
+      animate={isOpen ?  "open": "closed"}
+      variants={variants}
+      onClick={handleclick}>
+        <div className="buttonwrapper">
+            <div className='dot' ></div>
+        </div>
+      </motion.div> 
+        
       <nav>        
         <Columns
           backgroundColora={"red"}

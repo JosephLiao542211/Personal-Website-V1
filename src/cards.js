@@ -1,6 +1,6 @@
 import './App.css';
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence} from "framer-motion";
+import React, { useState } from 'react';
+import { motion} from "framer-motion";
 
 function Card(){
     const [dropdown,setdrop]=useState(false)
