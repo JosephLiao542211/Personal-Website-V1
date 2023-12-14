@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Page from "./page";
 import $ from 'jquery';
+import { motion } from 'framer-motion';
 
 function App() {
   const [pagestate, setpage] = useState("About");
@@ -8,7 +9,7 @@ function App() {
   
 
   const variants = {
-    open: { x: -150 },
+    open: { x: "-30vh" },
     closed: { x: 0 },
   };
 
@@ -67,7 +68,7 @@ function Columns({ backgroundColora, backgroundColorb, backgroundColorc, state, 
 
   return (
     <div>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3,33.333333%)", gap: "0px", width: "33vh", justifyContent: "center" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(3,33.333333%)", gap: "0px", width: "17vw", justifyContent: "center" }}>
         <div>
           <div className={navstate} style={{ backgroundColor: backgroundColora }} onClick={() => handleColumnClick("About")}>
             <p1>About Me</p1>
