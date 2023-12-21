@@ -1,4 +1,17 @@
+.swiper-button-next{
+  
+    --swiper-navigation-sides-offset: -50%
+    
+  }
+
+.swiper-button-prev {
+  
+  --swiper-navigation-sides-offset: -50%
+  
+}
+
 .card {
+    position: relative;
     width: 25vh;
     height: 35vh;
     border: 10px solid #ccc;
@@ -8,6 +21,7 @@
     padding: 15px 10px;
     box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;;
     overflow: hidden;
+    z-index: 100;
   }
   
   img {
@@ -16,3 +30,75 @@
     object-fit: scale-down; /* You can use 'contain', 'fill', etc. depending on your needs */
     object-position: center;
   }
+  
+ 
+  
+
+.gallerycontainer{
+  
+  padding: 10%;
+  overflow: hidden;
+  
+  height: 100vh;
+  width: 120vh;
+ 
+}
+
+.swiper {
+  rotate: 0deg;
+  align-items: center;
+  width: 50vh;
+  height: 70vh;
+}
+
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  border: 10px solid #ccc;
+  font-size: 22px;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;;
+  font-weight: bold;
+  color: #fff;
+}
+
+.swiper-slide:nth-child(1n) {
+  background-color: rgb(206, 17, 17);
+}
+
+.swiper-slide:nth-child(2n) {
+  background-color: rgb(0, 140, 255);
+}
+
+.swiper-slide:nth-child(3n) {
+  background-color: rgb(10, 184, 111);
+}
+
+.swiper-slide:nth-child(4n) {
+  background-color: rgb(211, 122, 7);
+}
+
+.swiper-slide:nth-child(5n) {
+  background-color: rgb(118, 163, 12);
+}
+
+.swiper-slide:nth-child(6n) {
+  background-color: rgb(180, 10, 47);
+}
+
+.swiper-slide:nth-child(7n) {
+  background-color: rgb(35, 99, 19);
+}
+
+.swiper-slide:nth-child(8n) {
+  background-color: rgb(0, 68, 255);
+}
+
+.swiper-slide:nth-child(9n) {
+  background-color: rgb(218, 12, 218);
+}
+
+.swiper-slide:nth-child(10n) {
+  background-color: rgb(54, 94, 77);
+}

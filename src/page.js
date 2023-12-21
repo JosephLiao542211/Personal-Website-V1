@@ -2,9 +2,11 @@ import './App.css';
 
 import React, { useState, useEffect } from 'react';
 import { ReactComponent as Yellow } from './yellowrings.svg';
-import { motion} from "framer-motion";
-import Card from "./cards";
+import {motion} from "framer-motion";
+
 import Statue from './images';
+
+import Gallery from './SwiperGallery';
 <link href='https://fonts.googleapis.com/css?family=Source Serif 4' rel='App'></link>
 
   
@@ -33,7 +35,10 @@ function Page({pagestate}){
                             
                         }}>
                             <h1>About</h1>
-                            <Card/>
+                           
+                           
+                            
+                            
                         </motion.div>
                         
                     </div>
@@ -65,6 +70,7 @@ function Page({pagestate}){
                             <path d="M544.093 0.500203L540.5 389L8.62362e-05 193.109L544.093 0.500203Z" fill="#87D4FF" fill-opacity="0.65"/>
                         </svg>
                         <Yellow/>
+                        <Gallery/>
                         
                     </motion.div>
                     
