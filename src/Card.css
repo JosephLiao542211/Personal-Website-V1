@@ -16,6 +16,7 @@
     height: 35vh;
     border: 10px solid #ccc;
     background: #2b2b2b;
+    padding: 10%;
     border-radius: 5%;
     margin: auto;
     padding: 15px 10px;
@@ -34,15 +35,6 @@
  
   
 
-.gallerycontainer{
-  
-  padding: 10%;
-  overflow: hidden;
-  
-  height: 100vh;
-  width: 120vh;
- 
-}
 
 .swiper {
   rotate: 0deg;
@@ -52,6 +44,9 @@
 }
 
 .swiper-slide {
+  display: block;
+  opacity: 0%;
+  background-color: #2b2b2b;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -60,10 +55,20 @@
   font-size: 22px;
   box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;;
   font-weight: bold;
+  text-align: center;
+  transition: opacity 5s;
   color: #fff;
 }
+.swiper-slide.far {
+  opacity: 50%;
+}
+.swiper-slide.current {
+  opacity: 100%;
+}
 
-.swiper-slide:nth-child(1n) {
+
+
+/* .swiper-slide:nth-child(1n) {
   background-color: rgb(206, 17, 17);
 }
 
@@ -101,4 +106,40 @@
 
 .swiper-slide:nth-child(10n) {
   background-color: rgb(54, 94, 77);
+}
+.swiper-button-next{
+  color: rgb(25, 112, 112);
+} */
+
+.nextarrow{
+  cursor: pointer;
+  position: relative;
+  rotate:-15deg;
+  z-index: 30;
+  left: 28vw;
+  bottom: 350px;
+  background-color: transparent;
+  border: transparent;
+  transition: ease-in-out 0.16s;
+}
+.nextarrow:hover svg{
+  transition: ease-in-out 0.16s;
+  transform: scale(110%);
+}
+
+
+.prevarrow{
+  cursor: pointer;
+  position: relative;
+  rotate:-15deg;
+  z-index: 30;
+  right: 10vw;
+  bottom: 280px;
+  background-color: transparent;
+  border: transparent;
+  transition: ease-in-out 0.16s;
+}
+.prevarrow:hover svg{
+  transition: ease-in-out 0.16s;
+  transform: scale(110%);
 }

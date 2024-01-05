@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200;0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;0,8..60,800;0,8..60,900;1,8..60,200;1,8..60,300;1,8..60,400;1,8..60,500;1,8..60,600;1,8..60,700;1,8..60,800;1,8..60,900&display=swap');
 
 .buttoncontainer{
       background-color: "yellow";
       height: 45px;
-      position: absolute;
+      position: fixed;
       margin-top: 1%;
       margin-right: 2%;
       top: 0;
@@ -20,6 +21,14 @@
 body{
   height: 100%;
   overflow-x: hidden;
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  
+
+}
+
+
+body::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
 }
 
 .wrapper{
@@ -28,26 +37,34 @@ body{
     height: 100vh;
 }
 .about{
-    background-color: red;
+    background: #FFE6A2;
     width: 100%;
-    min-height: 100vh;
+    padding-bottom: 20%   ;
+    height: max-content;
+    min-height: 120vh;
+    overflow: hidden;
+
 }
 .art{
-    background: radial-gradient(44.89% 19.68% at 72.32% 20.69%, #D74B4B 0%, #FC6868 100%);
+    background: radial-gradient(34.89vw 19.68vw at 93.32vw 42.69vw, #D74B4B 0%, #FC6868 100%);
     width: 100%;
+    height: 100%;
+    overflow: hidden;
     min-height: 100vh;
-    overflow-x: hidden;
+   
 }
 .tech{
-    background-color: blue ;
+    background: radial-gradient(23.2% 7.33% at 12.43% 20.97%, #0093E5 0%, #54C2FF 100%); ;
     min-height: 100vh;
     width: 100%;
 }
 .main{
-    background-color: blue ;
-    min-height: 100vh;
+    position: relative;
+    background-color: rgb(79, 68, 57) ;
+    min-height: 100%;
+    
     width: 100%;
-    overflow-x:hidden ;
+  
 }
 .parent {
     background: white;
@@ -63,21 +80,116 @@ body{
     height: 600px;
   }
 
-.container{
-    position: static;
-    width: 100px;
-    height: 0px;
-
+.container {
+  margin-top: 8%;
+  display: flex;
 }
 
+.sidebar {
+    width: 50%; /* Set the width of the sidebar */
+    padding: 20px;
+}
+
+.sidebar .graphic{
+  width: 70%; /* Set the width of the sidebar */
+  padding: 20px;
+}
+
+
+.main-content {
+    flex-grow: 1; /* Take up the remaining space */
+    padding: 20px;
+    
+}
+
+.main-content .graphic {
+  width: 100%;
+  padding-left: 10%;
+  right: 20%;
+  justify-content: center;
+  
+  
+}
+
+@media (max-width: 1250px) {
+  .container {
+      flex-direction: column; /* Stack the items vertically */
+  }
+
+  .sidebar {
+      width: 100%; /* Make the sidebar take up the full width */
+      order: 1; /* Change the order of the sidebar to appear after the main content */
+  }
+
+  .main-content {
+      order: 2; /* Change the order of the main content to appear before the sidebar */
+  }
+
+  .sidebar .graphic{
+    left: 100;
+    width: 60%; /* Make the sidebar take up the full width */
+    order: 2; /* Change the order of the sidebar to appear after the main content */
+  }
+
+  .main-content .graphic {
+      order: 1; /* Change the order of the main content to appear before the sidebar */
+      
+      
+  }
+
+  .gallerycontainer{
+   left: -35%;
+   
+  }
+  
+}
+
+
+@media (max-width: 1250px) {
+  .container {
+      flex-direction: column; /* Stack the items vertically */
+  }
+
+  .sidebar .graphic{
+    width: 100%; /* Make the sidebar take up the full width */
+    order: 2; /* Change the order of the sidebar to appear after the main content */
+  }
+
+  .main-content .graphic {
+      order: 1; /* Change the order of the main content to appear before the sidebar */
+  }
+
+  .gallerycontainer{
+   left: -35%;
+   
+  }
+  
+}
+
+
+
+
+
+
+
+.navcontainer{
+    z-index: 10000;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 70%;
+    right: 0;
+    height: 100%;
+}
 nav {
-      position: absolute;
-      top: 0;
-      right: 0;
-      justify-content: flex-end;
-      width: fit-content;
-      min-height: 0vh;
-      overflow-x: hidden;
+    z-index: 10000;
+    width: 17vw ;
+    top: 0; /* Set to 0 to stick at the top of the viewport */
+    position: fixed;
+    left: 83vw;
+    min-height: 0vh;
+    overflow-x: hidden;
+   
       
   }
   .c-container{
@@ -87,6 +199,7 @@ nav {
       padding-left: 0%;
       width: 100%;
       height: 100%;
+      
       text-align: center;
       white-space: nowrap;
      
@@ -94,11 +207,14 @@ nav {
       overflow: hidden;
 
   }
+
+
   .c-container-closed{
     float: right;
     padding-left: 0%;
     width: 100%;
     height: 0%;
+    
     text-align: center;
     white-space: nowrap;
     writing-mode: vertical-rl;
@@ -111,7 +227,14 @@ nav {
         opacity: 0.8; /* Decrease opacity on hover *//* Increase size on hover */
     
     }
-   
+.c-container p1,
+.c-container-closed p1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Ensure the text takes up the full height of the container */
+  padding-right:3%; /* Remove default margin */
+}
 
 
   /* Optional: Add some styling to the content within the flex container */
@@ -144,22 +267,66 @@ h2{
     letter-spacing: -0.9px;
 }
 
+.art h2{
+  color:#87D4FF;
+    margin: 0;
+    font-family: Gelion;
+    font-size: 45px;
+    font-style: normal;
+    font-weight: 500;
+    list-style: none;
+    letter-spacing: -0.9px;
+
+}
+
+p1{
+  color: #FFF;
+  font-family: "Source Serif 4";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: -0.4px;
+}
+
 p3{
     color: #FFF;
 font-family: "Source Serif 4";
 font-size: 2em;
 font-style: italic;
-font-weight: normal;
+font-weight: 500;
 line-height: normal;
 letter-spacing: -0.9px;
 
 }
 .text{
-    flex-wrap: wrap;
-    max-width: 50%;
+    z-index: 10;
+    width:40%;
     padding-top: 3%;
     margin-top: 0;
-    margin-left: 3%;
+    margin-left: 5%;
+}
+
+.text.graphic{
+  z-index: 10;
+  width:80%;
+  padding-top: 3%;
+  margin-top: 0;
+  margin-left: 5%;
+}
+
+.text.second{
+  position: relative;
+  width: 70%;
+  z-index: 10;
+  padding-top: 20%;
+ 
+}
+.text.second h2{
+  color: #FFF;
+}
+.text.second p3{
+  color:#87D4FF ;
 }
 
 .buttonwrapper {
@@ -175,11 +342,12 @@ letter-spacing: -0.9px;
 .dot {
     position: absolute;
     bottom: 0;
+     
     left: 50%;
     transform: translateX(-50%);
     width: 9px;
     height: 9px;
-    background: rgb(255, 255, 255);
+    background: #303030;
     border-radius: 50%;
     transition: all 0.5s ease;
     -webkit-backface-visibility: hidden;
@@ -193,10 +361,12 @@ letter-spacing: -0.9px;
     content: "";
     position: absolute;
     bottom: 0;
-    background: rgb(255, 255, 255);
+    background: #303030;
     width: 9px;
     height: 9px;
     border-radius: 50%;
+   
+    
     transition: all 0.35s ease;
   }
   .buttonwrapper.hover .dot::before, .buttonwrapper.hover .dot::after {
@@ -219,6 +389,69 @@ letter-spacing: -0.9px;
     transform-origin: left bottom;
     border-radius: 9px;
   }
+  .statue {
+    position: absolute; /* Change from relative to absolute */
+    top: 0; /* Align to the top */
+    right: 0; /* Align to the right */
+    rotate: -13deg  ;
+    z-index: 2;
+    width: 30vw;
+    height: auto;
+    margin-top: 0%; /* Adjust margin-top as needed */
+    margin-right: 4%; /* Adjust margin-right as needed */
+}
+
+.yellowrings{
+    position: absolute; /* Change from relative to absolute */
+    top: 0; /* Align to the top */
+    right: 0; /* Align to the right */
+    rotate: -28deg  ;
+    z-index: 1;
+    width: 50%;
+    height: auto;
+    margin-top: -10%; 
+    margin-right: -2.4%;/* Adjust margin-top as needed */
+   
+}
+
+.bluetriangle{
+  position: absolute; /* Change from relative to absolute */
+  top: 0; /* Align to the top */
+  right: 0; /* Align to the right */
+  rotate: -10deg;
+  z-index: 1;
+  width: 25%;
+  height: auto;
+  margin-top: 9%; 
+  margin-right: 7%;
+  z-index: 3;
+
+}
+.gallerycontainer{
+  rotate: 10deg;
+  position: relative;
+  padding-top:2%; 
+  padding-bottom: 10%;
+  /* overflow: hidden; */
+  right: 15%;
+  height: 80vh;
+  width: 120vh;
+ 
+}
+.gallerycontainer.graphics{
+  rotate: 10deg;
+  position: relative;
+  padding-top:2%; 
+  padding-bottom: 10%;
+  /* overflow: hidden; */
+  right: 15%;
+  height: 80vh;
+  width: 120vh;
+ 
+}
+
+
+
 
 
 

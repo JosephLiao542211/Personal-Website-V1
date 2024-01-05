@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import Page from "./page";
 import $ from 'jquery';
-import { motion } from 'framer-motion';
+import { color, motion } from 'framer-motion';
 
 function App() {
   const [pagestate, setpage] = useState("About");
   const [isOpen, setIsOpen] = useState(false);
+
+  const [bg, setbg] = useState("#FFE6A2");
+  
   
 
   const variants = {
@@ -29,9 +32,28 @@ function App() {
     setIsOpen(isOpen => !isOpen);
   }
 
+  const bgfunc=(pagestate)=>{
+    if (pagestate=="Art")
+      return ("#FF6A6A")
+    else if (pagestate=="Tech")
+      return ("#54C2FF")
+    else 
+      return ('#FFE6A2')
+  }
+
+  useEffect(() => {
+    setbg(bgfunc(pagestate));
+    console.log(bg);
+  }, [pagestate]);
+
+
+  
   return (
-    <div className="main">
-      <Page pagestate={pagestate}></Page>
+    <div className="main" style={{backgroundColor:bg}} > 
+      
+      <Page pagestate={pagestate} onpress={handleColumnClick}></Page>
+
+      
       <motion.div className='buttoncontainer'
       animate={isOpen ?  "open": "closed"}
       variants={variants}
@@ -40,16 +62,17 @@ function App() {
             <div className='dot' ></div>
         </div>
       </motion.div> 
+              
+          <Columns
+            backgroundColora={"#FFC555"}
+            backgroundColorb={"#87D4FF"}
+            backgroundColorc={"#FF6A6A"}
+            state={isOpen}
+            onClickColumn={handleColumnClick} // Pass the function to update pagestate
+          />
         
-      <nav>        
-        <Columns
-          backgroundColora={"red"}
-          backgroundColorb={"blue"}
-          backgroundColorc={"yellow"}
-          state={isOpen}
-          onClickColumn={handleColumnClick} // Pass the function to update pagestate
-        />
-      </nav>
+        
+      
     </div>
   );
 }
@@ -67,8 +90,8 @@ function Columns({ backgroundColora, backgroundColorb, backgroundColorc, state, 
   }
 
   return (
-    <div>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3,33.333333%)", gap: "0px", width: "17vw", justifyContent: "center" }}>
+    <nav>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "0px", minWidth: "100%", justifyContent: "center"}}>
         <div>
           <div className={navstate} style={{ backgroundColor: backgroundColora }} onClick={() => handleColumnClick("About")}>
             <p1>About Me</p1>
@@ -85,7 +108,7 @@ function Columns({ backgroundColora, backgroundColorb, backgroundColorc, state, 
           </div>
         </div>
       </div>
-    </div>
+    </nav>
   );
 }
 
